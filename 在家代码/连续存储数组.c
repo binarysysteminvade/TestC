@@ -107,7 +107,7 @@ bool append_arr(struct Arr * pArr, int val)
 	}
 	pArr->pBase[pArr->cnt] = val;//第一次添加是    arr[0]    pArr->cnt = 0
 	(pArr->cnt)++;// pArr->cnt = 1
-	return true;
+	return true;//成功返回true 
 }
 
 bool insert_arr(struct Arr * pArr, int pos, int val)
