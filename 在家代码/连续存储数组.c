@@ -23,7 +23,7 @@ int main(void)
 {
 	struct Arr array;
 	init_arr(&array, 6);
-	if (append_arr(&array, 1))
+	if (append_arr(&array, 1)) 
 	{
 		printf("追加成功\n"); 
 	} 
@@ -31,6 +31,8 @@ int main(void)
 	append_arr(&array, 3);
 	append_arr(&array, 4);
 	append_arr(&array, 5);
+	append_arr(&array, 6);
+	
 	show_arr(&array);
 	if (insert_arr(&array, 1, 99)==0) //0为false 
 		printf("插入失败\n"); 
@@ -103,8 +105,8 @@ bool append_arr(struct Arr * pArr, int val)
 	{
 		return false;
 	}
-	pArr->pBase[pArr->cnt] = val;
-	(pArr->cnt)++;
+	pArr->pBase[pArr->cnt] = val;//第一次添加是    arr[0]    pArr->cnt = 0
+	(pArr->cnt)++;// pArr->cnt = 1
 	return true;
 }
 
@@ -115,7 +117,7 @@ bool insert_arr(struct Arr * pArr, int pos, int val)
 	if(pos<1 || pos>pArr->cnt+1)
 		return false;
 	int i;
-	for (i = pArr->cnt-1; i >= pos-1; i--)
+	for (i = pArr->cnt-1; i >= pos-1; i--)//i此时为 有效元素-1   arr有一个元素的时候就是1   所以-1 相当于数组的下标 
 	{
 		pArr->pBase[i+1] = pArr->pBase[i];
 	}
